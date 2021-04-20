@@ -5,7 +5,7 @@ A Resume that fetch json data from a rails web site
 
 ### It works only with this:
 ```bash
-
+git clone https://github.com/sassani134/CurriculumExpo.git
 expo start
 ```
 
@@ -15,11 +15,27 @@ on a terminal
 git clone https://github.com/sassani134/CurriculumRails.git
 rails s
 ```
+
 on a second terminal
 ```bash
-
+git clone https://github.com/sassani134/CurriculumExpo.git
+```
+Change the useEffect fetch function in App.js to:
+```javascript
+    fetch('http://127.0.0.1:3000//home/index.json')
+```
+or
+```javascript
+    fetch('http://localhost:3000//home/index.json')
+```
+then
+```bash
+cd CurriculumExpo
 expo start
 ```
+
+you can also use my expo link:
+
 
 ## Usage
 You can freely use it for your own resume or for educational purporse. Do not hesitate to change the styles
