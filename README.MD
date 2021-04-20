@@ -1,6 +1,6 @@
 # Curriculum Vitae with expo
 
-A Resume that fetch json data from a rails web site
+A Resume that fetch json data from a [rails web site](https://github.com/sassani134/CurriculumRails.git)
 ## Installation
 
 ### It works only with this:
@@ -9,10 +9,15 @@ git clone https://github.com/sassani134/CurriculumExpo.git
 expo start
 ```
 
-### But if you want sommething more personal u can:
+### But if you want sommething more personal you can:
 on a terminal
 ```bash
 git clone https://github.com/sassani134/CurriculumRails.git
+cd CurriculumRails
+bundle
+rails db:create
+rails db:migrate 
+rails db:seed
 rails s
 ```
 
@@ -33,7 +38,7 @@ then
 cd CurriculumExpo
 expo start
 ```
-
+also you need to use rails to modify the json you fetch
 you can also use my expo link:
 
 
