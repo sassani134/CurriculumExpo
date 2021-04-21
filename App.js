@@ -20,19 +20,18 @@ export default function App() {
       .finally(()=> setLoading(false));
   }, []);
 
-
-
-
   return (
     <View style={styles.container}>
       {isLoading ? 
       
       <ActivityIndicator/>
       :
-        <Button 
-        onPress={() => console.log("test",data, "fin")}
-        title="test"
-        />
+        <View>
+          {data.interet.map(interet => (
+            <Text key={interet.id}>{interet.title}</Text>
+          ))}
+        </View>
+    
       }
       <StatusBar style="auto" />
     </View>
