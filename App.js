@@ -1,8 +1,7 @@
-//import { StatusBar } from 'expo-status-bar';
-import {   SafeAreaView, StatusBar } from 'react-native';
 import React,{ useState, useEffect } from 'react';
-import { StyleSheet, Text, View, ScrollView, ActivityIndicator, Button, Platform} from 'react-native';
-import { Badge, Chip} from 'react-native-paper';
+import { StyleSheet, Text, View, ScrollView, Platform, StatusBar} from 'react-native';
+import { Badge, Chip, Divider, ActivityIndicator, Avatar} from 'react-native-paper';
+import * as Linking from 'expo-linking';
 
 export default function App() {
 
@@ -29,9 +28,25 @@ export default function App() {
       <ActivityIndicator/>
       :
         <View style={styles.container} >
-          <View>
-            <Text style={styles.firstTitle}>Curriculum Vitae {"\t"} Samuel ASSANI</Text>
+          <View style={styles.staticContainer}>
+            <View>
+              <Text style={styles.firstTitle}>Samuel ASSANI{'\n'}</Text>
+              <Text style={styles.firstTitle}>Développeur </Text>
+              <Text style={styles.firstTitle}>RUBY ON RAILS | REACT NATIVE</Text>
+            </View>
+            <View style={styles.staticContact}>
+              <Chip mode={'outlined'} icon="gmail" Type="flat" onPress={() => Linking.openURL()}> samuel.assani.pro@gmail.com</Chip>
+              <Chip mode={'outlined'} icon="cellphone-basic" onPress={() => Linking.openURL('')}>0777796311</Chip>
+              <Chip mode={'outlined'} icon="github"onPress={() => Linking.openURL('https://github.com/sassani134')}>Mon Github</Chip>
+              <Chip mode={'outlined'} icon="stack-overflow" onPress={() => Linking.openURL('https://stackoverflow.com/users/9699439/sassani134')}>mon stackoverflow</Chip>
+              <Chip mode={'outlined'} icon="linkedin" onPress={() => Linking.openURL('https://www.linkedin.com/in/samuel-assani-330244178/')}>Mon Linkedin</Chip>
+              <Chip mode={'outlined'} icon="map-marker">Grenoble</Chip>
+
+            </View>
           </View>
+
+          <Divider />
+
           <View style={styles.employment}>
             <Text style={styles.titleText}>Experiences professionelles</Text>
             {data.employment.map(employment => (
@@ -44,6 +59,7 @@ export default function App() {
             </View>
           ))}
           </View>
+          <Divider />
 
           <View style={styles.certificat}>
             <Text style={styles.titleText}>Certificat</Text>
@@ -55,7 +71,8 @@ export default function App() {
             </View>
           ))}
           </View>
-              
+          <Divider />
+
           <View style={styles.competence} >
             <Text style={styles.titleText}>Competence</Text>
             {data.competence.map(competence => (
@@ -65,6 +82,7 @@ export default function App() {
             </View>
           ))}
           </View>
+          <Divider />
 
           
           <View style={styles.interet}>
@@ -73,6 +91,7 @@ export default function App() {
               <Chip key={interet.id} mode={'outlined'}>{interet.title}</Chip>
             ))}
           </View>
+          <Divider />
 
           <View style={styles.contact}>
             <Text style={styles.titleText}>Contact</Text>
@@ -99,6 +118,14 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 25
   },
+  staticContainer:{
+    flexDirection: 'row',
+  },
+  staticContact:{
+    justifyContent:'flex-end',
+    alignItems:'flex-end',
+    alignSelf:'flex-end',
+  },
   employment:{
     flex: 3,
     justifyContent: 'space-between',
@@ -124,6 +151,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     justifyContent:'center',
     alignItems: 'center',
+    alignSelf: 'center',
+  },
+  secondTitle: {
+
   },
   titleText:{
     fontWeight: 'bold',
